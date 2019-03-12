@@ -1,0 +1,36 @@
+
+<form  [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+  First name:<br>
+  <input type="text" name="firstname" formControlName="firstName" ><br>
+  Last name:<br>
+  <input type="text" name="lastname"  formControlName="lastName"><br>
+  email:<br>
+  <input type="text" name="lastname" formControlName="email" ><br>
+  Contact no.:<br>
+  <input type="text" name="lastname"  formControlName="contact" ><br>
+  ID:<br>
+  <input type="text" name="lastname" formControlName="id"  ><br>
+  <h3>Address</h3> 
+  <form class="form-group" formGroupName="address" >
+
+    <input type="street"  formControlName="street" class="form-control" id="autocomplete" placeholder="Street">
+
+    <input type="city"  formControlName="city" class="form-control" id="inputCity" placeholder="City">
+
+    <input type="state"  formControlName="state"  class="form-control" id="inputState" placeholder="State">
+
+    <input type="zip"  formControlName="zip"  class="form-control" id="inputZip" placeholder="Zip">
+
+     
+
+    <input type="country"  formControlName="country"  class="form-control" id="inputCountry" placeholder="Country"> <br>
+
+
+  </form><br>
+
+ 
+  <br> <input type="submit" value="Submit" id="btn"><br>
+ 
+  
+  
+</form>
