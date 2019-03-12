@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup,FormControl, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-one',
@@ -14,22 +14,22 @@ export class FormOneComponent implements OnInit {
 
     this.userForm = new FormGroup({
        
-      firstName:new FormControl(),
-      lastName:new FormControl(),
-      email:new FormControl(),
-      contact:new FormControl(),
-      id:new FormControl(),
+      firstName:new FormControl('',Validators.required),
+      lastName:new FormControl('',Validators.required),
+      email:new FormControl('',Validators.compose([Validators.required,])),
+      contact:new FormControl('',Validators.compose([Validators.required, Validators.maxLength(10),Validators.minLength(10)])),
+      id:new FormControl('',Validators.required),
       address : new FormGroup({
-        street:new FormControl(),
-        city:new FormControl(),
-        state:new FormControl(),
-        zip:new FormControl(),
-        country:new FormControl()
+        street:new FormControl('',Validators.required),
+        city:new FormControl('',Validators.required),
+        state:new FormControl('',Validators.required),
+        zip:new FormControl('',Validators.compose([Validators.maxLength(6),Validators.minLength(6)])),
+        country:new FormControl('',Validators.required)
       })
       
   }); 
   
-  
+  // Validators.pattern('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}')
 
   }
   onFormSubmit(){
